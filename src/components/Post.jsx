@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Avatar } from "./Avatar";
@@ -39,6 +38,8 @@ export function Post({ author, publishedAt, content }) {
         
         setComments(commentsWithoutDeletedOne);
     }
+
+    const isNewCommentEmpty = newCommentText.length === 0;
 
     return (
         <article className={styles.post}>
@@ -83,10 +84,15 @@ export function Post({ author, publishedAt, content }) {
                     onChange={handleNewCommentChange} 
                     name="inputComment" 
                     placeholder="Deixe um comentário" 
+                    required
                 />
 
                 <footer>
-                    <button type="submit">Publicar</button>
+                    <button 
+                        type="submit" 
+                        disabled={isNewCommentEmpty}>
+                            Publicar
+                        </button>
                 </footer>
             </form>
 
