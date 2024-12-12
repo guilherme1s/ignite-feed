@@ -52,15 +52,23 @@ export function Post({ author, publishedAt, content }) {
                 {content.map((line) => {
                     
                     if(line.type === "paragraph") {
-                        return <p>{line.content}</p>
+                        return (
+                            <p key={line.content}>
+                                {line.content}
+                            </p>    
+                        ); 
                     } else if(line.type === "link") {
-                        return <p><a href="#">{line.content}</a></p>
+                        return (
+                            <p key={line.content}>
+                                <a href="#">{line.content}</a>
+                            </p>  
+                        );
                     }
                 })}
             </div>
 
             <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
-                <stron>Deixe seu feedback</stron>
+                <strong>Deixe seu feedback</strong>
 
                 <textarea
                     value={newCommentText}
@@ -77,7 +85,7 @@ export function Post({ author, publishedAt, content }) {
             <div className={styles.commentList}>
                 {comments.map((comment) => {
                     return (
-                        <Comment 
+                        <Comment key={comment}
                             content={comment}
                         />
                     );

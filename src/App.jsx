@@ -11,8 +11,9 @@ import "./global.css";
 export function App() {
   const posts = [
     {  
+      id: 1,
       author: {
-        id: 1,
+        id: 10,
         name: "Guilherme Silva",
         role: "Web Developer",
         avatarUrl: "https://github.com/guilherme1s.png"
@@ -25,8 +26,9 @@ export function App() {
       ]
     },
     {  
+      id: 2,
       author: {
-        id: 2,
+        id: 11,
         name: "Mica da Silva",
         role: "Web Developer",
         avatarUrl: "https://images.unsplash.com/photo-1534761048360-953ec4f86aba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGRldnxlbnwwfHwwfHx8MA%3D%3D"
@@ -50,6 +52,7 @@ export function App() {
         {posts.map((post) => {
           return ( 
             <Post 
+              key={post.id}
               author={post.author} 
               content={post.content} 
               published={post.publishedAt} 
