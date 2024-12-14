@@ -71,7 +71,7 @@
 
 .commentForm:focus-within footer {
     visibility: visible;
-    max-height: 0;
+    max-height: none;
 }
 
 .commentForm > strong {
